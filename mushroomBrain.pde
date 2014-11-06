@@ -3,6 +3,7 @@ Edge edge;
 
 
 void setup() {
+  edge = new Edge(10,10,10);
   xml = loadXML("rsif-2014-0873-File001.gexf");
 
   XML graph = xml.getChild("graph");
@@ -19,6 +20,12 @@ void setup() {
   
    
 }
+
+void draw() {
+  edge.drawEdge(10, 10, 10);
+  
+}
+
 
 // Sketch prints:
 // 0, Capra hircus, Goat
