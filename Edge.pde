@@ -1,9 +1,9 @@
 class Edge {
   // XML data
- String id; 
-String source;
-String target; 
-String weight;
+int id; 
+int source;
+int target; 
+float weight;
 
 // made up graphical variables
 float x;
@@ -12,7 +12,13 @@ float size; // don't know if this makes sense yet
 
 
   // Constructor
-  Edge(float xpos, float ypos, float s) {
+  Edge(int ident, int src, int trgt, float wght, float xpos, float ypos, float s) {
+    
+    id = ident; 
+    source = src; 
+    target = trgt; 
+    weight = wght;
+    // ------------
     x = xpos; 
     y = ypos; 
     size = s; 

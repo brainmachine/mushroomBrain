@@ -12,10 +12,13 @@ void setup() {
   
   XML[] e = edges.getChildren("edge");
   print(e[0].listAttributes());
+ 
+  Edge[e.length] points;
   
-
   for (int i = 0; i < e.length; i++) {
-    // print (e[i].getString("id")+"\n"); 
+    // print (e[i].getString("id")+"\n");
+    
+   points[i] = new Edge(
   }
   
    
