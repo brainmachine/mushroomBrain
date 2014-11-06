@@ -1,9 +1,7 @@
 XML xml;
-Edge edge; 
 
 
 void setup() {
-  edge = new Edge(10,10,10);
   xml = loadXML("rsif-2014-0873-File001.gexf");
 
   XML graph = xml.getChild("graph");
@@ -13,19 +11,23 @@ void setup() {
   XML[] e = edges.getChildren("edge");
   print(e[0].listAttributes());
  
-  Edge[e.length] points;
+  Edge[] points = new Edge[e.length];
   
   for (int i = 0; i < e.length; i++) {
     // print (e[i].getString("id")+"\n");
-    
-   points[i] = new Edge(
+    //Edge(int ident, int src, int trgt, float wght, float xpos, float ypos, float s);
+    int id = int(e[i].getString("id"));
+    int source = int(e[i].getString("source"));
+    int target = int(e[i].getString("target"));
+    float weight = float(e[i].getString("weight"));
+    print(weight);
+  // points[i] = new Edge(
   }
   
    
 }
 
 void draw() {
-  edge.drawEdge(10, 10, 10);
   
 }
 
