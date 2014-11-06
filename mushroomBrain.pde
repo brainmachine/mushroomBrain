@@ -1,17 +1,17 @@
 XML xml;
-
+Edge[] edges; 
 
 void setup() {
   xml = loadXML("rsif-2014-0873-File001.gexf");
 
   XML graph = xml.getChild("graph");
   XML nodes = graph.getChild("nodes");
-  XML edges = graph.getChild("edges");
+  XML edgesXML = graph.getChild("edges");
   
-  XML[] e = edges.getChildren("edge");
+  XML[] e = edgesXML.getChildren("edge");
   print(e[0].listAttributes());
  
-  Edge[] points = new Edge[e.length];
+  edges = new Edge[e.length];
   
   for (int i = 0; i < e.length; i++) {
     // print (e[i].getString("id")+"\n");
@@ -21,14 +21,16 @@ void setup() {
     int target = int(e[i].getString("target"));
     float weight = float(e[i].getString("weight"));
     print(weight);
-  // points[i] = new Edge(
+   edges[i] = new Edge(id, source, target, weight, float(i), float(i), 5);
   }
   
    
 }
 
 void draw() {
-  
+  for (int i = 0; i < edges.length; i++) {
+    edges[i].drawEdge();
+  }
 }
 
 
