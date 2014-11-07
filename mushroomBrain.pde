@@ -3,7 +3,8 @@ Edge[] edges;
 
 void setup() {
   xml = loadXML("rsif-2014-0873-File001.gexf");
-
+size(800, 800);
+stroke(0,0,0,30);
   XML graph = xml.getChild("graph");
   XML nodes = graph.getChild("nodes");
   XML edgesXML = graph.getChild("edges");
@@ -21,6 +22,9 @@ void setup() {
     int target = int(e[i].getString("target"));
     float weight = float(e[i].getString("weight"));
     print(weight);
+    float x = x0 + r * Math.cos(2 * Math.PI * i / items);
+    float y = y0 + r * Math.sin(2 * Math.PI * i / items);
+    
    edges[i] = new Edge(id, source, target, weight, sin(i)*width, cos(i)*height, 5);
   }
   
