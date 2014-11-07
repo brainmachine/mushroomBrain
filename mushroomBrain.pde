@@ -10,7 +10,7 @@ XML xml;
 Edge[] edges; 
 
 void setup() {
-  xml = loadXML("rsif-2014-0873-File001.gexf");
+  xml = loadXML("rsif-2014-0873-File002.gexf");
   size(800, 800);
   stroke(0, 0, 0, 5);
   strokeWeight(1);
@@ -37,7 +37,7 @@ void setup() {
   for (int i = 0; i < edges.length; i++) {
     float x1 = edges[i].x; 
     float y1 = edges[i].y;
-    float minWeight = 1;
+    float minWeight = 0;
     for (int j = 0; j < edges.length; j++) {
       if (edges[j].id == edges[i].target && edges[i].weight > minWeight) {
         float x2 = edges[j].x;
@@ -47,6 +47,7 @@ void setup() {
       }
     }
   }
+  saveFrame("002.png");
 }
 
 void draw() {
