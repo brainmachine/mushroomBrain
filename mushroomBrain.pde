@@ -22,10 +22,10 @@ stroke(0,0,0,30);
     int target = int(e[i].getString("target"));
     float weight = float(e[i].getString("weight"));
     print(weight);
-    float x = x0 + r * Math.cos(2 * Math.PI * i / items);
-    float y = y0 + r * Math.sin(2 * Math.PI * i / items);
+    //float x = x0 + r * Math.cos(2 * Math.PI * i / items);
+    //float y = y0 + r * Math.sin(2 * Math.PI * i / items);
     
-   edges[i] = new Edge(id, source, target, weight, sin(i)*width, cos(i)*height, 5);
+   edges[i] = new Edge(id, source, target, weight, sin(i)*width/2+width/2, cos(i)*height/2+height/2, 5);
   }
   
    
