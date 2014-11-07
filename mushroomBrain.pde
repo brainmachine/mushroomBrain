@@ -21,7 +21,7 @@ void setup() {
     int target = int(e[i].getString("target"));
     float weight = float(e[i].getString("weight"));
     print(weight);
-   edges[i] = new Edge(id, source, target, weight, float(i), float(i), 5);
+   edges[i] = new Edge(id, source, target, weight, sin(i)*width, cos(i)*height, 5);
   }
   
    
@@ -29,7 +29,15 @@ void setup() {
 
 void draw() {
   for (int i = 0; i < edges.length; i++) {
-    edges[i].drawEdge();
+    float x1 = edges[i].x; 
+    float y1 = edges[i].y;
+    for (int j = 0; j < edges.length; j++) {
+      if (edges[j].id == edges[i].target) {
+       float x2 = edges[j].x;
+       float y2 = edges[j].y;
+       line(x1, y1, x2, y2);
+      }
+    }
   }
 }
 

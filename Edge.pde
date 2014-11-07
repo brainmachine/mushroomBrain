@@ -23,10 +23,5 @@ float size; // don't know if this makes sense yet
     y = ypos; 
     size = s; 
   }
-  
-  void drawEdge() {
-     ellipse(x, y, size*weight, size*weight); 
-  }
-  
 
 }
